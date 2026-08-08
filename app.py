@@ -43,7 +43,7 @@ if page == "1. Executive Summary":
     st.subheader("Comparison of ATE Across Methods")
     img = load_image("05_method_comparison.png")
     if img:
-        st.image(img, use_column_width=True)
+        st.image(img, use_container_width=True)
     else:
         st.warning("Method comparison plot not found. Run the main pipeline first.")
 
@@ -57,14 +57,14 @@ elif page == "2. Data & Confounders":
         st.write("Baseline comparison of earnings between the treatment group (trained) and control group (untrained).")
         img_eda = load_image("01_eda_earnings_distribution.png")
         if img_eda:
-            st.image(img_eda, use_column_width=True)
+            st.image(img_eda, use_container_width=True)
             
     with col2:
         st.subheader("Causal DAG (Directed Acyclic Graph)")
         st.write("This graph maps out our assumptions. Variables like Age and Education are *confounders* that affect both the likelihood of getting training and the final earnings.")
         img_dag = load_image("02_causal_dag.png")
         if img_dag:
-            st.image(img_dag, use_column_width=True)
+            st.image(img_dag, use_container_width=True)
 
 elif page == "3. Causal Analysis & HTE":
     st.title("Heterogeneous Treatment Effects (HTE)")
