@@ -39,7 +39,7 @@ class PDFReport(FPDF):
             self.cell(0, 10, f'[Image not found: {image_path}]', 0, 1, 'C')
             self.ln(5)
 
-def generate_pdf_report(ate_dict, output_dir):
+def generate_pdf_report(ate_dict, output_dir, save_dir):
     pdf = PDFReport()
     pdf.add_page()
     
@@ -114,6 +114,7 @@ def generate_pdf_report(ate_dict, output_dir):
     pdf.add_plot(f"{output_dir}/05_method_comparison.png")
 
     # Output file
-    pdf_path = f"{output_dir}/causal_inference_report.pdf"
+    os.makedirs(save_dir, exist_ok=True)
+    pdf_path = f"{save_dir}/causal_inference_report.pdf"
     pdf.output(pdf_path)
     return pdf_path

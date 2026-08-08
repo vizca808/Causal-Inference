@@ -21,7 +21,9 @@ warnings.filterwarnings('ignore')
 # Setup
 # -------------------------------------------------------------------
 OUTPUT_DIR = "plots"
+INSIGHT_DIR = "insight"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(INSIGHT_DIR, exist_ok=True)
 
 print("="*50)
 print("[ CAUSAL INFERENCE ANALYSIS PIPELINE ]")
@@ -289,10 +291,10 @@ ate_dict = {
     'DoWhy (Linear Regression)': ate_dowhy,
     'EconML (Causal Forest)': ate_econml
 }
-pdf_path = report_generator.generate_pdf_report(ate_dict, OUTPUT_DIR)
+pdf_path = report_generator.generate_pdf_report(ate_dict, OUTPUT_DIR, INSIGHT_DIR)
 print(f"[OK] Saved PDF Report to '{pdf_path}'")
 
 print("\n" + "="*50)
 print("[ ANALYSIS COMPLETE! ]")
-print(f"All plots and the PDF report have been saved to the '{OUTPUT_DIR}' directory.")
+print(f"All plots are in '{OUTPUT_DIR}' and the PDF report is in '{INSIGHT_DIR}'.")
 print("="*50)
